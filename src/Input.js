@@ -10,9 +10,13 @@ const Input = ({colorValue, setColorValue, setHexValue, isDarkText, setIsDarkTex
     autoFocus
     type="text"
     value={colorValue}
-    onChange={ (e) => {setColorValue(e.target.value); 
-     setHexValue(colorNames(e.target.value))}}
-    placeholder='Enter Color Value:'
+    onChange={ (e) => {
+      setColorValue(e.target.value); 
+      setHexValue(colorNames(e.target.value))
+      
+
+     }}
+     placeholder='Enter Color Value:'
     />
     <button
     type='button'

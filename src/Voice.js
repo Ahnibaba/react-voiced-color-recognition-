@@ -1,15 +1,24 @@
-import React, {useEffect}  from 'react';
+import React, { useEffect }  from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+
+
 const Voice = ({ setColorValue, colorValue }) => {
     
-  const { transcript, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition()
-  const startListening = () => SpeechRecognition.startListening({ continuous: true })
+  const { transcript, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
+
+  const startListening = () => SpeechRecognition.startListening({ continuous: true });
+
   useEffect(() => {
     console.log(transcript)
     setColorValue(transcript)
+
+    setTimeout(() => {
+      resetTranscript(null);
+    }, 1000);
   }, [transcript])
   // transcript is the text of the voice
   // resetTranscript is the clear out the transcript
+
   if (!browserSupportsSpeechRecognition) {
     return null
   }
