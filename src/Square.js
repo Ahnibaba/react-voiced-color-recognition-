@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Square = ({colorValue, hexValue, isDarkText}) => {
+const Square = ({colorValue, hexValue, isDarkText, rightColorValue}) => {
   return (
- <section className='square'  style={{backgroundColor : colorValue, color : isDarkText ? "white" : "black"}}>
+ <section className='square'  style={{ backgroundColor : rightColorValue && colorValue, color : isDarkText ? "white" : "black"}}>
 <p >
 { colorValue ? colorValue : "Empty Value"}
 </p>
 <p>
-    { hexValue ? hexValue : null}
+    { hexValue ? hexValue : undefined}
 </p>
  </section>
   )

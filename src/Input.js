@@ -1,6 +1,7 @@
 import React from 'react'
 import colorNames from "colornames"
-const Input = ({colorValue, setColorValue, setHexValue, isDarkText, setIsDarkText}) => {
+const Input = ({colorValue, setColorValue, hexValue, setHexValue, isDarkText, setIsDarkText, setRightColorValue}) => {
+  
   return (
     <form onSubmit={ (e) => {
     e.preventDefault();
@@ -11,8 +12,11 @@ const Input = ({colorValue, setColorValue, setHexValue, isDarkText, setIsDarkTex
     type="text"
     value={colorValue}
     onChange={ (e) => {
-      setColorValue(e.target.value); 
+      
+      setColorValue(e.target.value)
       setHexValue(colorNames(e.target.value))
+      colorNames(e.target.value) === undefined ? setRightColorValue(false) : setRightColorValue(true)
+      
       
 
      }}
